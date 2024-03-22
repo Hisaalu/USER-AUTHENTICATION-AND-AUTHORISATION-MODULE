@@ -27,17 +27,22 @@ SECRET_KEY = "django-insecure-byitp!*&^kq2$83j@c*6qmfsj_cz04-x68c)1%z^cw_1w)mli(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1', 
-    'silver-space-acorn-4546q776jrx2j5wq-8000.app.github.dev',
+ALLOWED_HOSTS = []
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://localhost:8000",
+    "https://silver-space-acorn-4546q776jrx2j5wq-8000.app.github.dev"
 ]
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
+    "corsheaders",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -48,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
